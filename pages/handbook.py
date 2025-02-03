@@ -1,3 +1,7 @@
+import streamlit as st
+
+st.code(
+    """
 # 這是註解<不會被執行>
 # 用ctrl+?框起來的地方可以快速加入註解/取消註解
 
@@ -49,4 +53,10 @@ print(2**3)  # 次方
 print("apple" + "pen")  # 字串相加
 print("apple" * 3)  # 字串乘法
 
-# 用streamlit run main.py網頁
+#用streamlit run main.py網頁
+
+
+
+
+"""
+)
