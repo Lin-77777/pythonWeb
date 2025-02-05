@@ -78,3 +78,49 @@ print(L[1:4:2])
 L = [1, 2, 3, "a", "b", "c"]
 L[0] = 2
 print(L)  # [2,2,3,"a","b","c"]
+
+
+# call by value
+
+a = 1
+b = a  # 複製a的值給複製a的值給b
+b = 2
+print(a, b)  # 1,2
+
+
+# call by reference
+a = [1, 2, 3]
+b = a  # 把a跟b指向同一個記憶體位置，所以改變b的值，a也會跟著改變
+b[0] = 2
+print(a)  # [2,2,3]
+
+
+a = [1, 2, 3]
+b = a.copy()  # 把a複製到b，所以改變b的值，a也會跟著改變
+b[0] = 2
+print(a, b)
+
+
+# list的append
+L = [1, 2, 3]
+L.append(4)
+print(L)  # [1,2,3,4]
+
+# list的移除元素方法有兩種
+# 使用remove,可以移除指定元素
+L = ["a", "b", "c", "d", "a"]
+L.remove("a")  # 移除第一個"a",["b","c","d","a"]
+# 代表remove會從頭開始找，找到第一個符合條件的元素，就會移除
+# 如果想要移除所有符合條件的元素，可以用用迴圈
+for i in L:
+    if i == "a":
+        L.remove("a")  # L.remove(i)
+
+
+# 2.使用pop，可以移除指定的index的元素
+L = ["a", "b", "c", "d", "a"]
+L.pop(0)  # 移除index 0的元素
+# 代表pop會移除指定index的元素
+# 如果不指定index，就會移除最後一個元素
+L.pop()  # 移除最後一個元素
+print(L)
