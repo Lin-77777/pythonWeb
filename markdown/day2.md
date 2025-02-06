@@ -132,6 +132,7 @@ import random as r
 
 if "ans" not in st.session_state:
     st.session_state.ans = r.randint(1, 100)
+if "last" not in st.session_state:
     st.session_state.last = 0
 
 n = st.number_input("請輸入 1-100 的數字", step=1, min_value=1, max_value=100)
