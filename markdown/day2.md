@@ -137,17 +137,17 @@ if "last" not in st.session_state:
 
 n = st.number_input("請輸入 1-100 的數字", step=1, min_value=1, max_value=100)
 
-if st.session_state.last >= 8:
-    st.write(f"遊戲結束！答案是 {st.session_state.ans}")
+if st.session_state.last == 0:
+    st.write(f"公布達案，答案是{st.session_state.ans}")
+if n < st.session_state.ans:
+    st.write("再大一點")
+    st.session_state.last = st.session_state.last - 1
+elif n > st.session_state.ans:
+    st.write("再小一點")
+    st.session_state.last = st.session_state.last - 1
 else:
-    if n < st.session_state.ans:
-        st.write("再大一點")
-    elif n > st.session_state.ans:
-        st.write("再小一點")
-    else:
-        st.write(f"恭喜答對！答案是 {st.session_state.ans}")
-        st.balloons()
-    st.session_state.last += 1
+    st.write(f"恭喜答對，答案是，答案是{st.session_state.ans}")
+    st.balloons()
 ```
 - `st.session_state` 用於儲存變數，即使使用者更新頁面，變數仍保留。
 
