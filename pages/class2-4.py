@@ -40,3 +40,10 @@ elif n > st.session_state.ans:
 else:
     st.write(f"恭喜答對，答案是，答案是{st.session_state.ans}")
     st.balloons()
+
+if st.button("重新開始", key="reset"):
+    st.session_state.min_value = 1
+    st.session_state.max = 100
+    st.session_state.last = 7
+    st.session_state.ans = r.randint(1, 100)
+    st.rerun()
