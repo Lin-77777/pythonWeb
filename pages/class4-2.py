@@ -17,5 +17,5 @@ for i in range(len(st.session_state.l)):
         st.write(st.session_state.l[i])
     with col2:
         if st.button("刪除", key=f"btn{i+1}"):
-            st.session_state.l.remove(st.session_state.l[i])
+            st.session_state.l.pop(i)
             st.rerun()
