@@ -6,34 +6,37 @@ st.title("猜數字小遊戲")
 st.write("---")
 # 透過session_state可以在將變數暫時存在瀏覽器當中，直到使用者重新整理整個網頁
 # 按下元件、或是與元件互動，都不會讓session_state當中的變數消失
-if "n" not in st.session_state:
-    st.session_state.n = 1
-if "n2" not in st.session_state:
-    st.session_state.n2 = 100
+if "min_value" not in st.session_state:
+    st.session_state.min_value = 1
+if "max" not in st.session_state:
+    st.session_state.max = 100
 
 
 if "ans" not in st.session_state:
     st.session_state.ans = r.randint(1, 100)
 if "last" not in st.session_state:
     st.session_state.last = 7
+
 st.write(f"你還剩{st.session_state.last}次機會")
 n = st.number_input(
     label="請輸入一個一到一百的數字", step=1, min_value=0, max_value=100
 )
+
 if st.session_state.last == 0:
     st.write(f"公布達案，答案是{st.session_state.ans}")
+
 if n < st.session_state.ans:
-    st.session_state.n = max(st.session_state.n, n + 1)
+    if n > st.session_state.min_value:
+        st.session_state.min_value = n
     st.write(
-        f"再大一點，答案在{st.session_state.n}到{st.session_state.n2}間，你的答案是:{n}"
+        f"再大一點，答案在{st.session_state.min_value}到{st.session_state.max}間，你的答案是:{n}"
     )
-    st.session_state.last = st.session_state.last - 1
 elif n > st.session_state.ans:
-    st.session_state.n2 = min(st.session_state.n2, n - 1)
+    if n < st.session_state.max:
+        st.session_state.max = n
     st.write(
-        f"再小一點，答案在{st.session_state.n}到{st.session_state.n2}間，你的答案是:{n}"
+        f"再小一點，答案在{st.session_state.min_value}到{st.session_state.max}間，你的答案是:{n}"
     )
-    st.session_state.last = st.session_state.last - 1
 else:
     st.write(f"恭喜答對，答案是，答案是{st.session_state.ans}")
     st.balloons()
