@@ -73,7 +73,7 @@ for i in L:
 ##### **List 切片 (Slicing)**
 ```python
 L = [1, 2, 3, "a", "b", "c"]
-print(L[::2])  # 取得 index 0,2,4 => [1,3,"b"]
+print(L[::2])  # 取得 index 0,2,4 => [1,3,"b"]順序是起始值(省略)到結束值(省略)步長
 print(L[1:4])  # 取得 index 1,2,3 => [2,3,"a"]
 print(L[1:4:2])  # 取得 index 1,3 => [2,"a"]
 ```
