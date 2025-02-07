@@ -73,7 +73,7 @@ if st.button("hahaha", key="button2"):
 st.write("---")
 st.write("隨機數字")
 # random.randint(1, 100)可以產生一個1到100之間的隨機整數
-st.write(f"random.randint(1, 100) = {r.randint(1, 100)}")
+# st.write(f"random.randint(1, 100) = {r.randint(1, 100)}")
 if st.button("按我一下", key="random"):
     st.write(f"random.randint(1, 100) = {r.randint(1, 100)}")
 
