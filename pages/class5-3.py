@@ -6,7 +6,7 @@ import os
 dotenv.load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
+tempereature = 1  # 調整自由度0最不自由，1最自由
 
 st.title("猜謎遊戲")
 if "history" not in st.session_state:
