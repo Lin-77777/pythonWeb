@@ -1,5 +1,7 @@
 import streamlit as st
+import menu
 
+menu.menu()
 
 st.title("class2-2")
 st.write(

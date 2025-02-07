@@ -1,5 +1,7 @@
 import streamlit as st
+import menu
 
+menu.menu()
 # 初始化 session_state 變數 "l"，如果尚未定義則設為空列表
 if "l" not in st.session_state:
     st.session_state.l = []

@@ -1,6 +1,8 @@
 import streamlit as st
 import time
+import menu
 
+menu.menu()
 st.title("欄位元件")
 col1, col2 = st.columns(2)  # 2columns
 col1.button("按鈕1", key="button1")  # 在col1中建立一個按鈕類似st.button("按鈕1")

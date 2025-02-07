@@ -2,6 +2,10 @@ import streamlit as st
 
 import random as r
 
+
+import menu
+
+menu.menu()
 st.title("猜數字小遊戲")
 st.write("---")
 # 透過session_state可以在將變數暫時存在瀏覽器當中，直到使用者重新整理整個網頁
