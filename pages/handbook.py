@@ -6,7 +6,7 @@ menu.menu()
 
 
 # 打開markdwon資料夾，取得所有檔案名稱為list，存到hd_book_files變數
-hd_book_files = os.listdir("markdown")
+hd_book_files = os.listdir("markdown").sort()
 
 
 # 透過迴圈，將markdown資料夾中的檔案名稱取出，並透過expanderm元件展開
