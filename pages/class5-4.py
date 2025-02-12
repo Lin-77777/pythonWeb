@@ -11,10 +11,10 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
 st.title("寫程式AI")
-if "history2" not in st.session_state:
-    st.session_state.history2 = []
+if "history3" not in st.session_state:
+    st.session_state.history3 = []
 
-for message in st.session_state.history2:
+for message in st.session_state.history3:
     if message["role"] != "developer":
         with st.chat_message(message["role"]):
             st.write(message["content"])
@@ -22,7 +22,7 @@ for message in st.session_state.history2:
 message = st.chat_input("請輸入文字")  # 聊天輸入框元件
 
 if message:
-    st.session_state.history2.append({"role": "user", "content": message})
+    st.session_state.history3.append({"role": "user", "content": message})
     completion = client.chat.completions.create(
         model="gpt-4o",
         messages=[
@@ -31,9 +31,9 @@ if message:
                 "content": "你是一個寫程式的小幫手，只能用繁體中文(#zh-TW)和日文(#ja-JP)回應後續對話",
             }
         ]
-        + st.session_state.history2,
+        + st.session_state.history3,
     )
-    st.session_state.history2.append(
+    st.session_state.history3.append(
         {"role": "assistant", "content": completion.choices[0].message.content}
     )
     st.rerun()  # 重新整理頁面
