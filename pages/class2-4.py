@@ -18,15 +18,15 @@ if "max" not in st.session_state:
 
 if "ans" not in st.session_state:
     st.session_state.ans = r.randint(1, 100)
-if "last" not in st.session_state:
-    st.session_state.last = 7
+if "last2" not in st.session_state:
+    st.session_state.last2 = 7
 
-st.write(f"你還剩{st.session_state.last}次機會")
+st.write(f"你還剩{st.session_state.last2}次機會")
 n = st.number_input(
     label="請輸入一個一到一百的數字", step=1, min_value=0, max_value=100
 )
 
-if st.session_state.last == 0:
+if st.session_state.last2 == 0:
     st.write(f"公布達案，答案是{st.session_state.ans}")
 
 if n < st.session_state.ans:
@@ -48,6 +48,6 @@ else:
 if st.button("重新開始", key="reset"):
     st.session_state.min_value = 1
     st.session_state.max = 100
-    st.session_state.last = 7
+    st.session_state.last2 = 7
     st.session_state.ans = r.randint(1, 100)
     st.rerun()
